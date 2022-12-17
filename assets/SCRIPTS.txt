@@ -1,0 +1,43 @@
+var ssId = "1ZzL-b4gdBjIeJcqcfl7kd1avCqr_3yWqXCeLozhmXvY";
+function doGet(e){
+  var accion = e.parameter.accion; 
+  var columna2 = e.parameter.num; 
+  var valores = e.parameter.valores; 
+  var datos = buscar(accion,columna2,valores); 
+  var respostaJSON = "[" + JSON.stringify(datos) + "]";
+  return ContentService.createTextOutput(respostaJSON).setMimeType(ContentService.MimeType.JSON);  
+}
+function buscar(accion,columna2,valores){
+  var sh = SpreadsheetApp.openById(ssId) ;
+  var sheet = sh.getSheets();
+  if(accion=="contar"){
+    var numpreg = sheet[0].getDataRange().getNumRows()-1;
+var resultado = {"accion": "contar", "numpreg" : numpreg};
+    return resultado;
+  };
+if(accion=="anadir"){
+    var datos = valores.split(',') ; 
+    sheet[0].appendRow(datos);
+    return {"accion" : accion,"valores" : datos };  
+  }else{
+    var datos = sheet[0].getDataRange().getValues();
+    for(var i in datos){
+      var row = datos[i]; 
+      var num = row[0] ;  
+      if (num == columna2){
+        var num = row[0] ;  
+        var columna2 = row[1] ;  
+        var columna3 = row[2] ;  
+        var columna4 = row[3] ;
+        var columna5 = row[4]; 
+        var columna6 = row[5] 
+        var columna7 = row[6] ;  
+        if(accion=="consultar"){
+var resultado = {"accion": "consultar", "num" : num , "columna2" : columna2, "columna3" : columna3 , "columna4" : columna4 , "columna5" : columna5 , "columna6" : columna6 , "columna7" : columna7 };
+        };      
+       return resultado; 
+      };
+    };
+  };
+  return {"num" : "" };
+}
