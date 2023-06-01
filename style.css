@@ -177,7 +177,9 @@ section.about div.about-container img{
 /* Experiência Acadêmica*/
 
     section.academic{
-        background-color: #EAF2FD;
+        background-color: #fff;
+        border-style:hidden;
+        border-color: grey;
     }
 
         section.academic div.courses{
@@ -561,6 +563,11 @@ section.footer div.rodape{
     section.experience div.info-container{
         margin: 0 5%;
     }
+
+    section.experience div.info-container-2{
+        margin: 0 5%;
+    }
+
 
     section.experience div.experiencia-box img {
         width: 50%;
