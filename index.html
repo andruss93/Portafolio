@@ -269,12 +269,15 @@
                     <h2 class="contact-title">Contacto</h2>
                     <h3 class="contact-subtext">¿Quieres contactarme?</h3>
                     <h3 class="contact-subtext">Complete el siguiente formulario y me pondré en contacto con usted lo antes posible. </h3>
-                    <form class="form" name="form">
+                    <form target="_blank" id="formulario" class="form" name="form" action="https://formsubmit.co/396275352ad3c9fc70605c24d169260c" method="POST">
+                    
                         <input class="contato-input" type="text" name="nombre" placeholder="Nombre">
                         <input class="contato-input" type="email" name="email" placeholder="E-mail">
                         <input class="contato-input" type="text" name="asunto" placeholder="Assunto">
                         <textarea class="contato-textarea" rows="5" cols="40" id="mensagem" name="mensaje" placeholder="Mensaje"></textarea>
-                        <button type="submit" class="contato__botao" onclick="enviarCorreo" target>Enviar mensaje</button>
+                        <button type="submit" form="formulario" class="contato__botao" value="enviar"  target>Enviar mensaje</button>
+                        <input type="hidden" name="_next" value="https://andruss93.github.io/Portafolio/">
+                        <input type="hidden" name="_captcha" value="false">
                     </form>
                 </div>
             </div>

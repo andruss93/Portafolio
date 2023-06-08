@@ -14,7 +14,7 @@ function validarDatos(){
         document.form.asunto.focus() 
 
     }else if (document.form.mensaje.value=="" || document.form.mensaje.value.length <= 50 ){
-        alert("Campo Mensaje es obligatorio y debe contener máximo 50 carateres") 
+        alert("Campo Mensaje es obligatorio y debe contener minimo 50 carateres") 
         document.form.mensaje.focus()
       
     } else if (document.form.email.value.indexOf('@')==-1 ||
@@ -23,7 +23,8 @@ function validarDatos(){
     }
    
 }
-    document.querySelector('form').addEventListener('submit',validarDatos)
+    // document.querySelector('form').addEventListener('submit',validarDatos)
+    // document.querySelector('form').addEventListener('submit',enviarCorreo)
 
 function abrirLink(){
  
