@@ -23,50 +23,48 @@
 //     }
    
 // }
-    // document.querySelector('form').addEventListener('submit',validarDatos)
-    // document.querySelector('form').addEventListener('submit',enviarCorreo)
+//     document.querySelector('form').addEventListener('submit',validarDatos)
+
+    
 
 function abrirLink(){
  
 }
 
-// function enviarCorreo (event){
-//     event.preventDefault();
+function convertirAPDF(){
+    html2canvas(document.getElementById('contenidoHTML')).then(function(canvas){
+        var imgData = canvas.toDataurl('image/png');
+    
+        var pdf = new js (PDF);
 
-//     var nombre = document.form.nombre.value;
-//     var email = document.form.email.value;
-//     var asunto = document.form.asunto.value;
-//     var mensaje = document.form.mensaje.value;
+        pdf.addImage(imgData, 'PNG', 0,0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
 
-//     var serviceId = 'default';
-//     var templateId = "andnemiroff"
+        pdf.save('archivo.pdf')
+       
+    });
 
-//     var data ={
-//         'nombre': nombre,
-//         'email': email,
-//         'asunto': asunto,
-//         'mensaje':mensaje
-//     }
+}
+//document.getElementById('btnConvertirPDF').addEventListener('click', convertirAPDF)
 
-
-//     fetch('https://api.emailjs.com/api/v1.0/email/send',{
-//     method:'POST',
-//     headers:{
-//         'content-type': 'aplication/json'
-//     },
-//     body: JSON.stringify({
-//         service_id: serviceId,
-//         templateId: templateId,
-//         user_id: 'andnemiroff',
-//         template_params: data
-//     })
-// })
-//     .then(function(response){
-//         alert('Correo enviado con exito');
-//         console.log("Correo enviado")
-//     })
-//     .catch(function(error){
-//         alert('Erro al enviar el correo', error)
-//         console.log("Correo no enviado")
-//     })
-// }
+document.addEventListener("DOMContentLoaded",() =>{
+    const $boton = document.querySelector ("#btnCrearPdf");
+    $boton.addEventListener("click",() => {
+        const $elementoParaConvertir = document.body;
+        html2pdf()
+            .set({
+                margin: 1,
+                filename: "Cv.pdf",
+                image: {
+                    type: "jpeg",
+                    quality:"0.98",
+                },
+                html2canvas:{
+                    scale: 3,
+                    letterRendering:"portrait"
+                }
+            })
+            .from($elementoParaConvertir)
+            .save()
+            .catch(err => alert(err));
+    })
+    })

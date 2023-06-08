@@ -18,6 +18,7 @@
         <header>
             <img src="assets\vector.png">
             <h3 class="menu-title">Andrés De Horta M.</h3>
+            <h2 class="menu-title"><button id="btnCrearPdf" type="submit" class="contato__botao" value="enviar" onclick="" target>Descargar Pdf</button></h2>
         </header>
         <nav>
             <ul class="menu-list">
@@ -275,7 +276,7 @@
                         <input class="contato-input" type="email" name="email" placeholder="E-mail">
                         <input class="contato-input" type="text" name="asunto" placeholder="Asunto">
                         <textarea class="contato-textarea" rows="5" cols="40" id="mensagem" name="mensaje" placeholder="Mensaje"></textarea>
-                        <button type="submit" form="formulario" class="contato__botao" value="enviar"  target>Enviar mensaje</button>
+                        <button type="submit" form="formulario" class="contato__botao" value="enviar" onclick="open()" target>Enviar mensaje</button>
                         <input type="hidden" name="_next" value="https://andruss93.github.io/Portafolio/">
                         <input type="hidden" name="_captcha" value="false">
                     </form>
@@ -291,5 +292,6 @@
         </section>
     </div>
 <script src="validacion.js"></script>
+<script src="html2pdf.bundle.min.js"></script>
 </body>
 </html>
